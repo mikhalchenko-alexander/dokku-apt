@@ -32,7 +32,7 @@ hook-apt-builder-create-dokku-image() {
     return
   fi
 
-  CID_FILE="$(mktemp "/tmp/dokku-${DOKKU_PID}-${FUNCNAME[0]}.XXXXXX")"
+  CID_FILE="$(mktemp -u "/tmp/dokku-${DOKKU_PID}-${FUNCNAME[0]}.XXXXXX")"
   dokku_log_info1 "Creating extended app image with custom system packages"
   pushd "$TMP_WORK_DIR" >/dev/null
   # shellcheck disable=SC2086
